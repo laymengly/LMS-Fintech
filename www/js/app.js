@@ -40,6 +40,14 @@ angular.module('starter', ['ionic', 'starter.controllers'])
       }
     }
   })
+  .state('app.ot_request',{
+    url:'/ot_request',
+    views:{
+      'menuContent':{
+        templateUrl:'templates/ot_request.html'
+      }
+    }
+  })
 
   .state('app.search', {
     url: '/search',
