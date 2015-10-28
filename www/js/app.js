@@ -32,6 +32,15 @@ angular.module('starter', ['ionic', 'starter.controllers'])
     controller: 'AppCtrl'
   })
 
+  .state('app.leave_request', {
+    url: '/leave_request',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/leave_request.html'
+      }
+    }
+  })
+
   .state('app.search', {
     url: '/search',
     views: {
