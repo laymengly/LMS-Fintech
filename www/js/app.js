@@ -31,14 +31,22 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
         templateUrl : "templates/noMenuState.html"
       })
   
-      .state("noMenu.user_login", {
-        "url" : "/user_login",
-        views : {
-          "noMenuView" : {
-            templateUrl : "templates/user_login.html"
-          }
+    .state("noMenu.user_login", {
+      "url" : "/user_login",
+      views : {
+        "noMenuView" : {
+          templateUrl : "templates/user_login.html"
         }
-      })
+      }
+    })
+    .state("noMenu.user_signup", {
+      "url" : "/user_signup",
+      views : {
+        "noMenuView" : {
+          templateUrl : "templates/signup.html"
+        }
+      }
+    })
     .state('app', {
     url: '/app',
     abstract: true,
