@@ -1,3 +1,4 @@
 @charset "utf-8";
 /* CSS Document */
+.clear{clear:both;}
 .center{background:#CCC;margin:0 auto;margin-top:2-px;height:200px;}
