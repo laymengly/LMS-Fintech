@@ -2,3 +2,4 @@
 /* CSS Document */
 .clear{clear:both;}
 .center{width:1000px;background:#CCC;margin:0 auto;height:300px;}
+.my-title{ text-align:center;margin-top:20px;font-family:Cambria, "Hoefler Text", "Liberation Serif", Times, "Times New Roman", serif;}
