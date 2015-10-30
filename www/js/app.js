@@ -25,6 +25,20 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
 .config(function($stateProvider, $urlRouterProvider) {
   $stateProvider
 
+  .state('noMenu', {
+        "url" : "/noMenu",
+        abstract : true,
+        templateUrl : "templates/noMenuState.html"
+      })
+  
+      .state("noMenu.user_login", {
+        "url" : "/user_login",
+        views : {
+          "noMenuView" : {
+            templateUrl : "templates/user_login.html"
+          }
+        }
+      })
     .state('app', {
     url: '/app',
     abstract: true,
@@ -81,7 +95,14 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
         }
       }
     })
-   
+   .state('app.user_login', {
+      url: '/user_login',
+      views: {
+        'menuContent': {
+          templateUrl: 'templates/user_login.html'
+        }
+      }
+    })
   .state('app.browse', {
       url: '/browse',
       views: {
@@ -108,17 +129,8 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
         controller: 'PlaylistCtrl'
       }
     }
-  })
-  .state('app.loginuser', {
-    url: '/loginuser',
-    views: {
-      'menuContent': {
-        templateUrl: 'templates/loginnew.html',
-        controller: 'loginCtrl'
-      }
-    }
   });
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/app/playlists');
-  //$urlRouterProvider.otherwise('/loginuser');
+  //$urlRouterProvider.otherwise('/app/playlists');
+  $urlRouterProvider.otherwise('/noMenu/user_login');
 });
