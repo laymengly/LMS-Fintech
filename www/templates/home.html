@@ -2,11 +2,17 @@
   <ion-content>
    	<div class="bar bar-header bar-dark">
  	 	<h1 class="title">Leave and Overtime Management System</h1>
-	</div>
+	</div><br><br>
     <!--start class center-->
+    <div class="clear"></div>
  	<div class="center">
-    	<h1>My Leave Balance</h1>
+    	<h4 class="my-title">My Leave Balance</h4>
     </div>
+    <div ng-controller="MyCtrl">
+    <input type="date" ng-model="date" value="{{date}}">
+        <p>{{date}}</p>
+    <input type="time" ng-model="time" value="{{time}}">    
+</div>
     <!--end of class center-->
   </ion-content>
 </ion-view>
