@@ -41,7 +41,7 @@ angular.module('starter.controllers', [])
   };
 })
 
-.controller('PlaylistsCtrl', function($scope, Employees) {
+.controller('PlaylistsCtrl', function($scope, $ionicPopup, Employees) {
  /* $scope.playlists = [
     { title: 'Reggae', id: 1 },
     { title: 'Chill', id: 2 },
@@ -54,6 +54,7 @@ angular.module('starter.controllers', [])
   console.log('reports');
   $scope.playlists = Employees.query();
   console.log($scope.playlists);
+  $ionicPopup.alert({title: 'Alert Example', content: "Please use this alert for this project !!"});
 
 })
 
