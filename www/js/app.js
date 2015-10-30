@@ -49,15 +49,39 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
     }
   })
 
-  .state('app.search', {
-    url: '/search',
+  .state('app.home', {
+    url: '/home',
     views: {
       'menuContent': {
-        templateUrl: 'templates/search.html'
+        templateUrl: 'templates/home.html'
       }
     }
   })
-
+ .state('app.leave_report', {
+    url: '/leave_report',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/leave_report.html'
+      }
+    }
+  })
+ .state('app.ot_report', {
+    url: '/ot_report',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/ot_report.html'
+      }
+    }
+  })
+   .state('app.user_infor', {
+      url: '/user_info',
+      views: {
+        'menuContent': {
+          templateUrl: 'templates/user_info.html'
+        }
+      }
+    })
+   
   .state('app.browse', {
       url: '/browse',
       views: {
