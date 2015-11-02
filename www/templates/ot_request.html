@@ -21,9 +21,14 @@
 		</label>
 		<label class="item item-input">
 		  <span class="input-label">Start Date : </span>
-		  <ionic-datepicker date="currentDate" min="minDate" max="maxDate" callback="datePickerCallback">
-		    <button class="button button-block button-positive"> {{ currentDate | date:'MMMM/dd/yyyy' }} </button>
-		</ionic-datepicker>
+		  <!--
+		    <ionic-datepicker date="currentDate" min="minDate" max="maxDate" callback="datePickerCallback">
+		      <button class="button button-block button-positive"> {{ currentDate | date:'MMMM/dd/yyyy' }} </button>
+			</ionic-datepicker>
+			-->
+			<ionic-datepicker input-obj="datepickerObject">
+			  <button class="button button-block button-positive"> {{datepickerObject.inputDate | date:'dd - MMMM - yyyy'}}</button>
+			</ionic-datepicker>
 		</label>
 		<label class="item item-input">
 		  <span class="input-label">Duration : </span>
