@@ -113,6 +113,14 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
         }
       }
     })
+   .state('app.user_signup', {
+      url: '/user_signup',
+      views: {
+        'menuContent': {
+          templateUrl: 'templates/user_signup.html'
+        }
+      }
+    })
   .state('app.browse', {
       url: '/browse',
       views: {
