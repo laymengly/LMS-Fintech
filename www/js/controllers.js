@@ -72,7 +72,7 @@ angular.module('starter.controllers', ['ionic','ionic-datepicker'])
 
 .controller("OTRequest",function($scope){
 
-
+  $scope.mydate ="";
 $scope.datepickerObject = {
       titleLabel: 'Select Start Date',  //Optional
       todayLabel: 'Today',  //Optional
@@ -113,7 +113,7 @@ $scope.datepickerObject = {
         console.log('No date selected');
       } else {
         console.log('Selected date is : ', val)
-        alert(val);
+         $scope.mydate=val;
       }
     };
 

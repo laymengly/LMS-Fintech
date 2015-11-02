@@ -33,11 +33,14 @@
 			
 		</label>
 		<label>
-			<input type="text" ng-model="mydate" style="background:#f00;" value="5555555555"/>
+			<span>KKKKKKK :</span>
+		    <label class="item-input-wrapper">
+		     	<input type="date" style="background:#f00;" value="{{mydate | date: 'MMM - ddd - yyyy'}}" ng-model="mydate">
+		    </label> &nbsp; &nbsp;
 		</label>
 		<label class="item item-input">
 		  <span class="input-label">Duration : </span>
-		  <input type="date">
+		    <input type="date">
 		</label>
 		<label class="item item-input">
 		  <span class="input-label">Reson</span>
