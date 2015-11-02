@@ -125,3 +125,6 @@ $scope.datepickerObject = {
 
 // Home
 
+.controller("ctrHome",function($scope){
+
+  )};
