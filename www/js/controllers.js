@@ -65,6 +65,10 @@ angular.module('starter.controllers', ['ionic','ionic-datepicker'])
 .controller('loginCtrl', function($scope, $stateParams) {
 	alert(1);
 })
+.controller('HomeCtrl',function($scope,$stateParams)
+
+})
+
 .controller("OTRequest",function($scope){
   /*
     $("#startdate").ionCalendar({
@@ -120,10 +124,8 @@ $scope.datepickerObject = {
       }
     };
 
-.controller("ctrHome",function($scope){
 
-  });
 });
 
-// Home
+
 
