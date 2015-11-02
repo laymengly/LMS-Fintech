@@ -69,6 +69,7 @@ angular.module('starter.controllers', ['ionic','ionic-datepicker'])
 
 })
 
+/*
 .controller("OTRequest",function($scope){
 
 
@@ -116,7 +117,7 @@ $scope.datepickerObject = {
       }
     };
 
-
+  */
 });
 
 
