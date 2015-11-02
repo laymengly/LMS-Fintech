@@ -1,9 +1,83 @@
-<ion-view view-title="OVERTIME REQUEST">
-  <ion-content>
 
+
+<ion-view view-title="OVER TIME REQUEST">
+  <ion-content>
     <div class="bar bar-header bar-dark">
-	  	<h5 style="color:white;margin: 0 auto;padding: 0 auto;">Leave and OverTime Management System</h5>
+	  <h1 class="title">Leave and OverTime Managment System</h1>
 	</div>
-  
+
+	<!--
+	<div class="bar bar-header bar-balanced">
+	  <div class="title">Footer</div>
+	</div>
+	--><br/><br/><br/>
+
+	<h2>Submit and Overtime Request</h2>
+	<br/><br/>
+	<div class="list">
+		<label class="item item-input">
+		  <span class="input-label">Start Date : </span>
+		  <input type="date" id="startdate" class="startdate">
+		</label>
+		<label class="item item-input">
+		  <span class="input-label">Start Date : </span>
+		  <ionic-datepicker date="currentDate" min="minDate" max="maxDate" callback="datePickerCallback">
+		    <button class="button button-block button-positive"> {{ currentDate | date:'MMMM/dd/yyyy' }} </button>
+		</ionic-datepicker>
+		</label>
+		<label class="item item-input">
+		  <span class="input-label">Duration : </span>
+		  <input type="date">
+		</label>
+		<label class="item item-input">
+		  <span class="input-label">Reson</span>
+		  <textarea></textarea>
+		</label>
+
+		<label class="item item-input item-select">
+		    <div class="input-label">
+		      Status :
+		    </div>
+		    <select>
+		      <option>Planned</option>
+		      <option selected>Green</option>
+		      <option>Red</option>
+		    </select>
+		</label>
+
+		 <div class="item item-input-inset">
+		 	<span>Status  :</span>
+		    <label class="item-input-wrapper">
+		     	<input type="date"> | <input type="date">
+		    </label> &nbsp; &nbsp;
+		    
+		  </div>
+
+		  <label class="item item-input item-select">
+                    <div class="input-label">
+                        Lightsaber
+                    </div>
+                    <select>
+                        <option selected>Default</option>
+                        <option >Green</option>
+                        <option>Red</option>
+                    </select>
+          </label>
+
+		  <div style ="text-align:right;">
+		  	<button class="button button-balanced">
+				  Request
+			  </button>
+			  <button class="button button-balanced">
+				  Cencel
+			  </button>
+		  </div>
+		  
+	</div>
+
+	<ionic-datepicker date="currentDate" min="minDate" max="maxDate" callback="datePickerCallback">
+    <button class="button button-block button-positive"> {{ currentDate | date:'MMMM/dd/yyyy' }} </button>
+</ionic-datepicker>
+
   </ion-content>
 </ion-view>

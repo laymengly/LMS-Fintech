@@ -65,4 +65,13 @@ angular.module('starter.controllers', [])
 .controller('loginCtrl', function($scope, $stateParams) {
 	alert(1);
 })
+.controller("OTRequest",function($scope){
+    $("#startdate").ionCalendar({
+      lang:"en",
+      years: "1915-1995",
+      onClick:function(date){
+        $("#startdate").html("onClick: "+date);
+      }
+    })
+})
 ;
