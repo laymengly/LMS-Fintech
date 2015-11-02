@@ -120,11 +120,10 @@ $scope.datepickerObject = {
       }
     };
 
+.controller("ctrHome",function($scope){
 
+  });
 });
 
 // Home
 
-.controller("ctrHome",function($scope){
-
-  )};
