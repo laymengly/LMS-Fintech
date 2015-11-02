@@ -125,7 +125,7 @@ $scope.datepickerObject = {
 
 // Home
 
-.controller("Home",function($scope){
+.controller("ctrHome",function($scope){
   /*
     $("#startdate").ionCalendar({
       lang:"en",
