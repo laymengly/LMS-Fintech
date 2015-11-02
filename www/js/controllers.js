@@ -70,19 +70,10 @@ angular.module('starter.controllers', ['ionic','ionic-datepicker'])
 })
 
 .controller("OTRequest",function($scope){
-  /*
-    $("#startdate").ionCalendar({
-      lang:"en",
-      years: "1915-1995",
-      onClick:function(date){
-        $("#startdate").html("onClick: "+date);
-      }
-    })
-*/
 
 
 $scope.datepickerObject = {
-      titleLabel: 'Title',  //Optional
+      titleLabel: 'Select Start Date',  //Optional
       todayLabel: 'Today',  //Optional
       closeLabel: 'Close',  //Optional
       setLabel: 'Set',  //Optional
@@ -94,12 +85,12 @@ $scope.datepickerObject = {
       disabledDates: disabledDates, //Optional
       weekDaysList: weekDaysList,   //Optional
       monthList: monthList, //Optional
-      templateType: 'popup', //Optional
+      templateType: 'popup', //popup
       showTodayButton: 'true', //Optional
       modalHeaderColor: 'bar-positive', //Optional
       modalFooterColor: 'bar-positive', //Optional
-      from: new Date(2012, 8, 2),   //Optional
-      to: new Date(2018, 8, 25),    //Optional
+      from: new Date(2000, 8, 2),   //Optional
+      to: new Date(2100, 8, 25),    //Optional
       callback: function (val) {    //Mandatory
         datePickerCallback(val);
       }
@@ -121,6 +112,7 @@ $scope.datepickerObject = {
         console.log('No date selected');
       } else {
         console.log('Selected date is : ', val)
+        alert(val);
       }
     };
 
