@@ -66,8 +66,8 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
     url:'/ot_request',
     views:{
       'menuContent':{
-        templateUrl:'templates/ot_request.html'
-        /*controller:'OTRequest'*/
+        templateUrl:'templates/ot_request.html',
+        controller:'OTRequest'
       }
     }
   })
