@@ -7,7 +7,15 @@
       <div class="lsit">
         <label class="item item-input">
           <span class="input-label">Date of Report</span>
+            <ionic-datepicker input-obj="datepickerObject">
+              <button class="button button-block button-positive"> {{datepickerObject.inputDate | date:'dd - MMMM - yyyy'}}</button>
 
+            </ionic-datepicker>
+        </label>
       </div>
+      
+      <ionic-datepicker date="currentDate" min="minDate" max="maxDate" callback="datePickerCallback">
+    <button class="button button-block button-positive"> {{ currentDate | date:'MMMM/dd/yyyy' }} </button>
+  </ionic-datepicker>
   </ion-content>
 </ion-view>
