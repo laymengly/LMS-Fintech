@@ -2,7 +2,7 @@
 /* CSS Document */
 .clear{clear:both;}
 .center{width:1000px;background:#CCC;margin:0 auto;height:300px;padding-top:10px;}
-.my-title{text-align:center;margin-top:20px;}
+.h_title{color:gray;}
 .header .col {
     background-color:lightgrey;
 }
