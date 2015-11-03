@@ -163,6 +163,9 @@ angular.module('starter.controllers', ['ionic','ionic-datepicker'])
     };
 
  
+})
+.controller("OTReportCtrl",function($scope){
+
 });
 
 

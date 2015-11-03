@@ -93,7 +93,8 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
     url: '/ot_report',
     views: {
       'menuContent': {
-        templateUrl: 'templates/ot_report.html'
+        templateUrl: 'templates/ot_report.html',
+        controller:'OTReportCtrl'
       }
     }
   })
