@@ -99,6 +99,47 @@ function login(req, res, next) {
         .catch(next);
 };
 
+/**
+ * Signup
+ * @param req
+ * @param res
+ * @param next
+ * @returns {*|ServerResponse}
+ */
+
+function signup(req, res, next) {
+
+    winston.info('signup');
+
+    var user = req.body;
+
+    if (!validator.isEmail(user.email)) {
+        return res.send(400, "Invalid email address");
+    }
+    if (!validator.isLength(user.firstName, 1) || !validator.isAlphanumeric(user.firstName)) {
+        return res.send(400, "First name must be at least one character");
+    }
+    if (!validator.isLength(user.lastName, 1) || !validator.isAlphanumeric(user.lastName)) {
+        return res.send(400, "Last name must be at least one character");
+    }
+    if (!validator.isLength(user.password, 4)) {
+        return res.send(400, "Password must be at least 4 characters");
+    }
+
+    db.query('SELECT id FROM salesforce.contact WHERE email=$1', [user.email], true)
+        .then(function (u) {
+            if(u) {
+                return next(new Error('Email address already registered'));
+            }
+            createUser(user, hash)
+                .then(function () {
+                    return res.send('OK');
+                })
+                .catch(next);
+        })
+        .catch(next);
+};
+
 function testPost(req, res, next) {
     winston.info('login user');
     var user = req.body;
@@ -117,6 +158,33 @@ function testPost(req, res, next) {
             })
         .catch(next);
 };
+
+/**
+ * Create a user
+ * @param user
+ * @param password
+ * @returns {promise|*|Q.promise}
+ */
+function createUser(user, password) {
+
+    var deferred = Q.defer(),
+        externalUserId = (+new Date()).toString(36); // TODO: more robust UID logic
+
+    db.query('INSERT INTO salesforce.contact (email, password__c, firstname, lastname, leadsource, loyaltyid__c, accountid) VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING id, firstName, lastName, email, loyaltyid__c as externalUserId',
+        [user.email, password, user.firstName, user.lastName, 'Loyalty App', externalUserId, config.contactsAccountId], true)
+        .then(function (insertedUser) {
+            deferred.resolve(insertedUser);
+        })
+        .catch(function(err) {
+            deferred.reject(err);
+        });
+    return deferred.promise;
+};
+
+
+
 exports.post = testPost;
 exports.login = login;
 exports.findById = findById;
+exports.signup = signup;
+exports.createUser = createUser;
