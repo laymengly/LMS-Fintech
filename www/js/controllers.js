@@ -4,7 +4,7 @@ angular.module('starter.controllers', ['ionic','ionic-datepicker'])
         return {
             login: function (user) {
               console.log(user);
-               return $http.post('http://192.168.178.44:4000/login', user)
+               return $http.post($rootScope.server.url + '/login', user)
                     .success(function (data) {
                       console.log(data);
                         $rootScope.user = data.user;
