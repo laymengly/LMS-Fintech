@@ -4,9 +4,14 @@
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
+angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'/*, 'starter.auth'*/])
 
-.run(function($ionicPlatform) {
+.run(function($window, $location, $rootScope, $state, $ionicPlatform, $http) {
+  var user = JSON.parse($window.localStorage.getItem('user'));
+  
+  $rootScope.user = user;
+  $rootScope.server = {url: location.protocol + '//' + location.hostname + (location.port ? ':' + location.port : '')};
+
   $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
@@ -20,6 +25,19 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
       StatusBar.styleDefault();
     }
   });
+
+// Re-route to welcome street if we don't have an authenticated token
+  $rootScope.$on('$stateChangeStart', function(event, toState) {
+      if (toState.name !== 'noMenu.user_login' && toState.name !== 'noMenu.user_signup' && toState.name !== 'app.welcome' && toState.name !== 'app.logout' && !$window.localStorage.getItem('user')) {
+          console.log('Aborting state ' + toState.name + ': No token');
+          //$location.path('/noMenu/user_login');
+          $state.go('noMenu.user_login');
+          event.preventDefault();
+      }
+  });
+
+  $state.go('app.home');
+
 })
 
 .config(function($stateProvider, $urlRouterProvider) {
@@ -35,7 +53,8 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
       "url" : "/user_login",
       views : {
         "noMenuView" : {
-          templateUrl : "templates/user_login.html"
+          templateUrl : "templates/user_login.html",
+          controller: "LoginCtrl"
         }
       }
     })
@@ -43,7 +62,8 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
       "url" : "/user_signup",
       views : {
         "noMenuView" : {
-          templateUrl : "templates/signup.html"
+          templateUrl : "templates/signup.html",
+          controller: "LoginCtrl"
         }
       }
     })
@@ -51,7 +71,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
     url: '/app',
     abstract: true,
     templateUrl: 'templates/menu.html',
-    controller: 'AppCtrl'
+    controller: 'LoginCtrl'
   })
 
   .state('app.leave_request', {
@@ -151,5 +171,5 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
   });
   // if none of the above states are matched, use this as the fallback
   //$urlRouterProvider.otherwise('/app/playlists');
-  $urlRouterProvider.otherwise('/noMenu/user_login');
+  //$urlRouterProvider.otherwise('/noMenu/user_login');
 });

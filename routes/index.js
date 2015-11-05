@@ -39,8 +39,8 @@ exports.findAll = function (req, res, next) {
 };
 exports.findById = function (req, res, next) {
     var id = req.params.id;
-    res.send(employees[id]);
-	 var results = [];
+    //res.send(employees[id]);
+	var results = [];
 	var client = new pg.Client(connectionString);
 	client.connect(function(error) {
 		console.log(error);
@@ -49,7 +49,7 @@ exports.findById = function (req, res, next) {
     pg.connect(connectionString, function(err, client, done) {
 
         // SQL Query > Select Data
-        var query = client.query("SELECT * FROM gbi_user wherer user_no = ($1);" , [id]);
+        var query = client.query("SELECT user_no FROM gbi_user where user_no = ($1);" , [id]);
 
         // Stream results back one row at a time
         query.on('row', function(row) {

@@ -1,6 +1,10 @@
 var express = require('express'),
     employees = require('./routes/employees'),
 	user = require('./routes/index'),
+	login = require('./routes/login'),
+    bodyParser     = require('body-parser'),	
+  	compression = require('compression'),
+    methodOverride = require('method-override'),	
     app = express();
 
 app.use(express.static('www'));
@@ -16,6 +20,22 @@ app.get('/employees', employees.findAll);
 app.get('/employees/:id', employees.findById);
 app.get('/employees/:id/reports', employees.findReports);
 app.get('/user', user.findAll);
+app.get('/user/:id', user.findById);
+app.use(compression());
+app.use(bodyParser({
+    uploadDir: __dirname + '/uploads',
+    keepExtensions: true
+}));
+app.use(methodOverride());
+app.use(function(err, req, res, next) {
+    console.log(err.stack);
+    res.send(500, err.message);
+});
+
+//app.get('/login', login.login);
+//app.post('/login', login.login);
+app.post('/post', login.post);
+app.post('/login', login.post);
 
 app.set('port', process.env.PORT || 4000);
 

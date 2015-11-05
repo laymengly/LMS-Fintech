@@ -9,22 +9,22 @@
      <div class="list" style="padding: 20px;">
     <span class="input-label">User Name</span>
       <label class="item item-input item-input-wrapper">    
-        <input type="text" placeholder="">
+        <input type="text" placeholder="" ng-model="user.userid">
       </label>
     <span class="input-label">Password</span>
       <label class="item item-input item-input-wrapper">
-        <input type="password" placeholder="">
+        <input type="password" placeholder="" ng-model="user.password">
       </label>
       <br>
       <br>
       <div class="row ">
         <div class="col text-right "> 
-            <button class="button button-balanced " ui-sref="app.home" style="width: 110px;">
+            <button class="button button-balanced "  ng-click="login()" style="width: 110px;"><!--  ui-sref="app.home" -->
                 LOGIN
             </button>
         </div>
           <div class="col"> 
-            <button class="button button-balanced" ui-sref="app.user_signup" style="width: 110px;">
+            <button class="button button-balanced" ui-sref="noMenu.user_signup" style="width: 110px;">
                 SIGN UP
             </button>
         </div>
