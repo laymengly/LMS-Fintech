@@ -3,7 +3,12 @@ module.exports = {
     //databaseURL: process.env.DATABASE_URL || "pg://greenmsgdev:greenmsgdev@192.168.178.83:5432/greenmsgdevdb",
 
     //Connect Database Test in Local
-    databaseURL: process.env.DATABASE_URL || "pg://postgres:postgres@localhost:5432/LMS",
+    //databaseURL: process.env.DATABASE_URL || "pg://postgres:postgres@localhost:5432/LMS",
+
+    //Connect Database Test in Server
+    databaseURL: process.env.DATABASE_URL || "pg://postgres:postgres@192.168.178.30:5432/lmsdb",
+
+
 
    /* contactsAccountId: process.env.CONTACTS_ACCOUNT_ID,
 
