@@ -32,10 +32,10 @@ app.use(function(err, req, res, next) {
     res.send(500, err.message);
 });
 
-//app.get('/login', login.login);
-//app.post('/login', login.login);
 app.post('/post', login.post);
 app.post('/login', login.post);
+app.post('/signup', login.signup);
+
 
 app.set('port', process.env.PORT || 4000);
 

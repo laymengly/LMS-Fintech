@@ -59,6 +59,7 @@ angular.module('starter.controllers', ['ionic','ionic-datepicker'])
                 return promise;
             },
             signup: function (user) {
+                console.log(user);
                 return $http.post($rootScope.server.url + '/signup', user);
             }
         }
@@ -83,9 +84,13 @@ angular.module('starter.controllers', ['ionic','ionic-datepicker'])
       $state.go('noMenu.user_login');
     },
     $scope.signup = function() {
+      if ($scope.user.password !== $scope.user.password2) {
+          $ionicPopup.alert({title: 'Oops', content: "passwords don't match"});
+          return;
+      }
       Auth.signup($scope.user)
             .success(function (data) {
-                $state.go("app.login");
+                $state.go("noMenu.user_login");
             })
             .error(function (err) {
                 $ionicPopup.alert({title: 'Oops', content: err});

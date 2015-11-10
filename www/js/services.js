@@ -8,4 +8,9 @@ angular.module('starter.services', ['ngResource'])
     })
     .factory('Login', function ($resource) {
         return $resource('/login/:user_no');
+    })
+    /*.factory('Leave', function ($resource) {
+        return $resource('/leave/:employeeId/:data');
     });
+*/
+    
