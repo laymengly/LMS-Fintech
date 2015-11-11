@@ -152,8 +152,32 @@ angular.module('starter.controllers', ['ionic','ionic-datepicker'])
 
 .controller("OTRequest",function($scope){
 
-  $scope.mydate ="";
-  $scope.datepickerObject = {
+  //----Initial Date-------------
+    var dd= new Date();
+    var monthArr=['Jan','Feb','Mar','Apr','May','Jun','July','Aug','Sep','Oct','Nov','Dec'];
+  
+    function getMonth(){
+      var mm= (dd.getMonth()+1);
+      var monthStr="";
+      for(var i=0;i<mm;i++){
+        monthStr = monthArr[i];
+      }
+      return (monthStr);
+    }
+    function getYear(){
+      return dd.getFullYear().toString();
+    }
+    function getDay(){
+      return dd.getDate().toString();
+    }
+    function getfullDate(){
+      return getDay()+" - "+getMonth()+" - "+getYear();
+    }
+    //-------------------------
+
+  $scope.myStartDate=getfullDate();
+
+  var datePickerObj1={ 
       titleLabel: 'Select Start Date',  //Optional
       todayLabel: 'Today',  //Optional
       closeLabel: 'Close',  //Optional
@@ -172,11 +196,16 @@ angular.module('starter.controllers', ['ionic','ionic-datepicker'])
       modalFooterColor: 'bar-positive', //Optional
       from: new Date(2000, 8, 2),   //Optional
       to: new Date(2100, 8, 25),    //Optional
-      callback: function (val) {    //Mandatory
+      callback: function (val) {    //Mandatory 
         datePickerCallback(val);
       }
-    };
+      
+    }
 
+    
+  $scope.startDate = datePickerObj1;
+
+    
     var disabledDates = [
       new Date(1437719836326),
       new Date(),
@@ -188,14 +217,19 @@ angular.module('starter.controllers', ['ionic','ionic-datepicker'])
 
     var weekDaysList = ["Sun", "Mon", "Tue", "Wed", "thu", "Fri", "Sat"];
     var monthList = ["Jan", "Feb", "March", "April", "May", "June", "July", "Aug", "Sept", "Oct", "Nov", "Dec"];
+
     var datePickerCallback = function (val) {
       if (typeof(val) === 'undefined') {
         console.log('No date selected');
       } else {
         console.log('Selected date is : ', val)
-         $scope.mydate=val;
+         $scope.myStartDate=val;
       }
     };
+
+    $scope.status="";
+
+
 
  
 })

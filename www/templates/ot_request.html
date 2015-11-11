@@ -17,26 +17,14 @@
 	<div class="list">
 		<label class="item item-input">
 		  <span class="input-label">Start Date : </span>
-		  <input type="date" id="startdate" class="startdate">
-		</label>
-		<label class="item item-input">
-		  <span class="input-label">Start Date : </span>
-		  <!--
-		    <ionic-datepicker date="currentDate" min="minDate" max="maxDate" callback="datePickerCallback">
-		      <button class="button button-block button-positive"> {{ currentDate | date:'MMMM/dd/yyyy' }} </button>
+		  <ionic-datepicker input-obj="startDate">
+			  <button class="button button-block button-positive" ng-model="myStartDate">{{myStartDate | date: 'dd - MMM - yyyy'}} </button>
 			</ionic-datepicker>
-			-->
-			<ionic-datepicker input-obj="datepickerObject">
-			  <button class="button button-block button-positive"> {{datepickerObject.inputDate | date:'dd - MMMM - yyyy'}}</button>
-			  <input type="text" style="background:#fff;" value="{{startDat | date: 'dd - MMMM - yyyy'}}" ng-model="mydate">
-			  <p>{{mydate | date: 'dd - MMMM - yyyy'}}</p>
-			</ionic-datepicker>
-			
 		</label>
-		     	
+	
 		<label class="item item-input">
 		  <span class="input-label">Duration : </span>
-		    <input type="date" style="background:#ccc;"> &nbsp; &nbsp;
+		    <input type="date" style="background:#ccc;" ng-model="duration"> &nbsp; &nbsp;
 		    
 		</label>
 		<label class="item item-input" style="text-align:right;">
@@ -49,14 +37,14 @@
 
 		<label class="item item-input">
 		  <span class="input-label">Reson</span>
-		  <textarea></textarea>
+		  <textarea ng-model="cause"></textarea>
 		</label>
 
 		<label class="item item-input item-select">
 		    <div class="input-label">
 		      Status :
 		    </div>
-		    <select>
+		    <select ng-model="status">
 		      <option>Planned</option>
 		      <option selected>Green</option>
 		      <option>Red</option>
