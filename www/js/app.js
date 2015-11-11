@@ -105,7 +105,8 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'/*,
     url: '/leave_report',
     views: {
       'menuContent': {
-        templateUrl: 'templates/leave_report.html'
+        templateUrl: 'templates/leave_report.html',
+        controller : 'LeavesRepCtrl'
       }
     }
   })
