@@ -80,7 +80,7 @@ function login(req, res, next) {
                 return res.send(401, invalidCredentials);
             }
             return res.send({'user':{'email': user.email, 'firstName': user.firstname, 'lastName': user.lastname}});
-           comparePassword(creds.password, user.password, function (err, match) {
+           /* comparePassword(creds.password, user.password, function (err, match) {
                 if (err) return next(err);
                 if (match) {
                     createAccessToken(user)
@@ -94,7 +94,7 @@ function login(req, res, next) {
                     // Passwords don't match
                     return res.send(401, invalidCredentials);
                 }
-            });
+            });*/
         })
         .catch(next);
 };
