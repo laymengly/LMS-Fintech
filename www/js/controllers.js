@@ -61,7 +61,9 @@ angular.module('starter.controllers', ['ionic','ionic-datepicker'])
             signup: function (user) {
                 console.log(user);
                 return $http.post($rootScope.server.url + '/signup', user);
-                alert(2);
+            },
+            leave: function (leaves) {
+                return $http.post($rootScope.server.url + '/leaveReport', leaves);
             }
         }
     })
@@ -197,6 +199,16 @@ angular.module('starter.controllers', ['ionic','ionic-datepicker'])
 
  
 })
+
+.controller("LeavesRepCtrl",function($scope, $http){
+  console.log("LeavesRepCtrl started...");
+  $http.get("http://localhost:4000/leave")
+    .success(function(response) {
+      $scope.leave = response;
+    });
+})
+
+
 .controller("OTReportCtrl",function($scope){
 
 });
