@@ -201,7 +201,7 @@ angular.module('starter.controllers', ['ionic','ionic-datepicker'])
 })
 
 .controller("LeavesRepCtrl",function($scope, $http){
-  console.log("LeavesRepCtrl started...");
+  //console.log("LeavesRepCtrl started...");
   $http.get("http://localhost:4000/leave")
     .success(function(response) {
       $scope.leave = response;
