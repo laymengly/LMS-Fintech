@@ -9,6 +9,9 @@ var express = require('express'),
     // Leave report leave is url;
     leave = require('./routes/leaveReport'),   
     app = express();
+    //leave Banlance 
+    leaveB=require('./routes/leaveBalance'),
+    app=express();
 
 app.use(express.static('www'));
 
@@ -18,9 +21,8 @@ app.all('*', function(req, res, next) {
     res.header("Access-Control-Allow-Headers", "X-Requested-With");
     next();
 });
-
+app.get('leaveB',leaveB.findAll);
 app.get('/leave', leave.findAll); //leave is url;
-
 app.get('/employees', employees.findAll);
 app.get('/employees/:id', employees.findById);
 app.get('/employees/:id/reports', employees.findReports);

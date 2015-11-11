@@ -6,6 +6,7 @@ angular.module('starter.services', ['ngResource'])
 	.factory('Users', function ($resource) {
         return $resource('/users/:user_no');
     })
+
     .factory('Login', function ($resource) {
         return $resource('/login/:user_no');
     });
