@@ -60,7 +60,9 @@ angular.module('starter.controllers', ['ionic','ionic-datepicker'])
             },
             signup: function (user) {
                 console.log(user);
+                alert(1);
                 return $http.post($rootScope.server.url + '/signup', user);
+                alert(2);
             }
         }
     })
@@ -90,10 +92,11 @@ angular.module('starter.controllers', ['ionic','ionic-datepicker'])
       }
       Auth.signup($scope.user)
             .success(function (data) {
+              //alert("s");
                 $state.go("noMenu.user_login");
             })
             .error(function (err) {
-                $ionicPopup.alert({title: 'Oops', content: err});
+                $ionicPopup.alert({title: 'Oops', content: err}); 
             });
     };
 })
