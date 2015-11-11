@@ -40,19 +40,33 @@
 			</div>
 		</div>
 	</dvi>
-	<div class="row">
+	
+	<!-- <div class="row">
+		
 		<div class="col">
-			Start Date: 
+		<label class="item item-input">
+		  <span class="input-label">Start Date : </span>
+		  <input type="date" id="startdate" class="startdate">
+		</label>
+			<div class="list">
+				<label class="item item-input item-select">
+				    <div class="input-label">
+				      Start Date :
+				    </div>
+				    <ionic-datepicker input-obj="datepickerObject">
+					    <button class="button button-block button-positive"> {{datepickerObject.inputDate | date:'dd - MMMM - yyyy'}}</button>
+					</ionic-datepicker>
+				</label>
+			</div>
+			
 		</div>
-		<div class="col col-65" style="background-color: gray;">
-			<input type="text" id="datepicker" style="height: 100%;" >
+		<div class="col col-90%">
+			<select>
+				<option value="">AM</option>
+				<option selected value="">PM</option>
+			</select>
 		</div>
-	</div>
-
-	<label class="item item-input">
-	  <span class="input-label">End Date</span>
-	  <input type="date">
-	</label>
+	</div> -->
 
 	<dvi class="row">
 		<div class="col">
@@ -97,7 +111,7 @@
 		<div class="col">	
 		</div>
 		<div class="col col-75">
-			<button class="button button-balanced" ng-click="reqForm()">
+			<button class="button button-balanced">
 			  	Request
 			</button>
 			<button class="button button-balanced">

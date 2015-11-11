@@ -78,8 +78,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'/*,
     url: '/leave_request',
     views: {
       'menuContent': {
-        templateUrl: 'templates/leave_request.html',
-        controller:'leaveRequest'
+        templateUrl: 'templates/leave_request.html'
       }
     }
   })
@@ -106,8 +105,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'/*,
     url: '/leave_report',
     views: {
       'menuContent': {
-        templateUrl: 'templates/leave_report.html',
-        controller:'leaveReport'
+        templateUrl: 'templates/leave_report.html'
       }
     }
   })

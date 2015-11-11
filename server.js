@@ -1,10 +1,11 @@
+
 var express = require('express'),
     employees = require('./routes/employees'),
-	user = require('./routes/index'),
-	login = require('./routes/login'),
-    bodyParser     = require('body-parser'),	
-  	compression = require('compression'),
-    methodOverride = require('method-override'),	
+    user = require('./routes/index'),
+    login = require('./routes/login'),
+    bodyParser     = require('body-parser'),    
+    compression = require('compression'),
+    methodOverride = require('method-override'),    
     app = express();
 
 app.use(express.static('www'));
