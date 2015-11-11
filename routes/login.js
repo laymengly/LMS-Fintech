@@ -22,12 +22,12 @@ function findById(req, res, next) {
             })
         .catch(next);
     /*console.log('User'+id);
-	var results = [];
-	var client = new pg.Client(connectionString);
-	client.connect(function(error) {
-		console.log(error);
-	});
-	 // Get a Postgres client from the connection pool
+    var results = [];
+    var client = new pg.Client(connectionString);
+    client.connect(function(error) {
+        console.log(error);
+    });
+     // Get a Postgres client from the connection pool
     pg.connect(connectionString, function(err, client, done) {
 
         // SQL Query > Select Data
@@ -42,14 +42,14 @@ function findById(req, res, next) {
         query.on('end', function() {
             client.end();
             //return res.json(results);
-			res.send(results);
+            res.send(results);
         });
 
         // Handle Errors
         if(err) {
           res.send(err);
         }
-	});*/
+    });*/
 
 
 
@@ -126,12 +126,12 @@ function signup(req, res, next) {
         return res.send(400, "Password must be at least 4 characters");
     }
 
-    db.query('SELECT id FROM salesforce.contact WHERE email=$1', [user.email], true)
+    db.query('SELECT * from lms_users where login = $1 or email = $2', [user.loginId, user.email], true)
         .then(function (u) {
             if(u) {
-                return next(new Error('Email address already registered'));
+                return next(new Error('Email address or Login ID already registered'));
             }
-            createUser(user, hash)
+            createUser(user)
                 .then(function () {
                     return res.send('OK');
                 })
@@ -165,13 +165,13 @@ function testPost(req, res, next) {
  * @param password
  * @returns {promise|*|Q.promise}
  */
-function createUser(user, password) {
+function createUser(user) {
 
     var deferred = Q.defer(),
-        externalUserId = (+new Date()).toString(36); // TODO: more robust UID logic
+        externalUserId = (+new Date()).toString(); // TODO: more robust UID logic
 
-    db.query('INSERT INTO lms_users ( ID, firstname, lastname, LOGIN, email, PASSWORD, ROLE, manager, country, organization, contract, POSITION, datehired, identified, idap_path, active, timezone, calendar, phone, emergency ) VALUES ( $1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20) RETURNING ID, firstName, lastName, email',
-        [externalUserId, user.email, password, user.firstName, user.lastName, 'Loyalty App', externalUserId, config.contactsAccountId], true)
+    db.query('INSERT INTO lms_users ( ID, firstname, lastname, LOGIN, email, PASSWORD, ROLE, manager, country, organization, contract, POSITION, datehired, identifier, idap_path, active, timezone, calendar, phone, emergency ) VALUES ( $1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20) RETURNING ID, firstName, lastName, email',
+        [externalUserId, user.firstName, user.lastName, user.loginId, user.lastName, user.email, user.password, '1', '0', '1', '1', user.position, '2014-01-01', '1', user.dep, '1', '1', '1', user.phone, user.emergency], true)
         .then(function (insertedUser) {
             deferred.resolve(insertedUser);
         })
