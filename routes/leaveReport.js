@@ -7,13 +7,15 @@ var router = express.Router(),
     pg = require('pg');
 
 exports.findAll = function (req, res, next) {
-    winston.info('leave report');
+    // alert("sss");
+    // winston.info('leave report');
     db.query('SELECT * from lms_leaves')
         .then(function (leaves) {
             if (!leaves) {
                 return res.send(401, invalidCredentials);
             }
             return res.send(leaves);
+            //console.log(leaves);
             })
         .catch(next);
     
