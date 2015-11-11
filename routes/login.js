@@ -171,8 +171,8 @@ function createUser(user) {
         externalUserId = (+new Date()).toString(); // TODO: more robust UID logic
 
     db.query('INSERT INTO lms_users ( ID, firstname, lastname, LOGIN, email, PASSWORD, ROLE, manager, country, organization, contract, POSITION, datehired, identifier, idap_path, active, timezone, calendar, phone, emergency ) VALUES ( $1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20) RETURNING ID, firstName, lastName, email',
-        /*[externalUserId, user.firstName, user.lastName, user.loginId, user.lastName, user.email, user.password, '1', '0', '1', '1', user.position, '2014-01-01', '1', user.dep, '1', '1', '1', user.phone, user.emergency], true)*/
-         [externalUserId, user.firstName, user.lastName, user.loginId,user.email, user.password, '1', '0', '1', '1', user.position, '2014-01-01', '1', user.dep, '1', '1', '1', user.phone, user.emergency], true)
+        [externalUserId, user.firstName, user.lastName, user.loginId, user.lastName, user.email, user.password, '1', '0', '1', '1', user.position, '2014-01-01', '1', user.dep, '1', '1', '1', user.phone, user.emergency], true)
+        
         .then(function (insertedUser) {
             deferred.resolve(insertedUser);
         })
