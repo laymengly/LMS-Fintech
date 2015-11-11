@@ -28,16 +28,17 @@
       	<div class="col">Reason</div>
       	<div class="col">Status</div>
 	</div>
-	<div ng-repeat="item in leaves">
 
+	<div ng-repeat="item in leave">
+	
 	    <div class="row">
-          	<div class="col">{{ item.startdate |  date:"MM/dd/yyyy"}}</div>
-          	<div class="col">{{ item.enddate |  date:"MM/dd/yyyy"}}</div>
-         	 <div class="col">{{ item.duration}}</div>
-          	<div class="col">{{ item.type}}</div>
-          	<div class="col">{{ item.status}}</div>
-        </div>
-
+	          	<div class="col">{{ item.startdate |  date:"MM/dd/yyyy"}}</div>
+	          	<div class="col">{{ item.enddate |  date:"MM/dd/yyyy"}}</div>
+	         	 <div class="col">{{ item.duration}}</div>
+	          	<div class="col">{{ item.type}}</div>
+	          	<div class="col">{{ item.status}}</div>
+	        </div>
+	
 	</div>
 	  
   </ion-content>
