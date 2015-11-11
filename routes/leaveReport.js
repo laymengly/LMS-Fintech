@@ -8,7 +8,7 @@ var router = express.Router(),
 
 exports.findAll = function (req, res, next) {
     // alert("sss");
-    // winston.info('leave report');
+    winston.info('leave report');
     db.query('SELECT * from lms_leaves')
         .then(function (leaves) {
             if (!leaves) {
