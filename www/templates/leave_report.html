@@ -13,7 +13,7 @@
 	<div class="list">
 		<div class="item item-input-inset">
 		    <label class="item-input-wrapper">
-		       <input type="text" placeholder="search">
+		       <input type="text" placeholder="search" ng-model="search">
 		    </label>
 		    <button class="button button-small button-positive">
 		       Search
@@ -29,13 +29,13 @@
       	<div class="col">Status</div>
 	</div>
 
-	<div ng-repeat="item in leave">
+	<div ng-repeat="item in leave | filter:search">
 	
 	    <div class="row">
 	          	<div class="col">{{ item.startdate |  date:"MM/dd/yyyy"}}</div>
 	          	<div class="col">{{ item.enddate |  date:"MM/dd/yyyy"}}</div>
 	         	 <div class="col">{{ item.duration}}</div>
-	          	<div class="col">{{ item.type}}</div>
+	          	<div class="col">{{ item.cause}}</div>
 	          	<div class="col">{{ item.status}}</div>
 	        </div>
 	
