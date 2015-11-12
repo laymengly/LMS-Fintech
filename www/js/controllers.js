@@ -62,8 +62,9 @@ angular.module('starter.controllers', ['ionic','ionic-datepicker'])
                 console.log(user);
                 return $http.post($rootScope.server.url + '/signup', user);
             },
-            leaveB:function(leaveBS){
-              return $http.post($rootScope.server.url + '/leaveBalance',leaveBS);
+            lbalances:function(lbalance){
+              console.log(lbalances);
+              return $http.post($rootScope.server.url + '/leaveBalance',lbalances);
             },
             leave: function (leaves) {
                 return $http.post($rootScope.server.url + '/leaveReport', leaves);
@@ -127,6 +128,7 @@ angular.module('starter.controllers', ['ionic','ionic-datepicker'])
       callback: function (val) {    //Mandatory
         datePickerCallback(val);
       }
+      
     };
 
     var disabledDates = [
@@ -231,9 +233,6 @@ angular.module('starter.controllers', ['ionic','ionic-datepicker'])
     };
 
     $scope.status="";
-
-
-
  
 })
 
@@ -245,9 +244,9 @@ angular.module('starter.controllers', ['ionic','ionic-datepicker'])
     });
 })
 .controller("HomeCtrl",function($scope,$http){
-  $http.get("http://localhost:4000/leaveB")
+  $http.get("http://localhost:4000/lbalances")
   .success(function(response){
-    $scope.leaveB=response;
+    $scope.lbalances=response;
   })
 })
 
