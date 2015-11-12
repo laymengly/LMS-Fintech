@@ -7,7 +7,9 @@ var express = require('express'),
     compression = require('compression'),
     methodOverride = require('method-override'), 
     // Leave report leave is url;
-    leave = require('./routes/leaveReport'),   
+    leave = require('./routes/leaveReport'),  
+    leaveReq= require('./routes/leaveRequest'),
+
     app = express();
     //leave Banlance 
     leaveB=require('./routes/leaveBalance'),
@@ -42,6 +44,8 @@ app.use(function(err, req, res, next) {
 app.post('/post', login.post);
 app.post('/login', login.post);
 app.post('/signup', login.signup);
+
+app.post('/leaveReq', leaveReq.leavesRequestForm);
 
 
 app.set('port', process.env.PORT || 4000);
