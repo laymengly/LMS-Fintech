@@ -12,7 +12,7 @@ exports.leavesRequestForm = function (req, res, next) {
 	    if (err) throw err;
 	    else res.send('success');
 	});   */ 
-	db.query('INSERT INTO lms_leaves VALUES (3, "2015-11-11","2015-11-11",1,1,"go home",1,1,2,1)',
+	/*db.query('INSERT INTO lms_leaves VALUES (3, "2015-11-11","2015-11-11",1,1,"go home",1,1,2,1)',
 	function selectCb(err, results, fields) {
 	    if (err){
 	    	console.log("can not insert!!!");
@@ -22,5 +22,17 @@ exports.leavesRequestForm = function (req, res, next) {
 	    	res.send('success');
 	    	console.log("inserted");
 	    } 
-	});
+	});*/
+db.query('INSERT INTO lms_leaves VALUES (3, "2015-11-11","2015-11-11",1,1,"go home",1,1,2,1')
+        
+        .then(function (leaves) {
+            deferred.resolve(leaves);
+            console.log("success");
+        })
+        .catch(function(err) {
+            deferred.reject(err);
+            console.log("error");
+        });
+        console.log("return it");
+    return deferred.promise;
 };
