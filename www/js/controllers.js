@@ -243,6 +243,11 @@ angular.module('starter.controllers', ['ionic','ionic-datepicker'])
       $scope.leave = response;
     });
 })
+
+.controller("LeavesReqCtrl",function($scope, $http){
+   alert(1);
+})
+
 .controller("OTReportCtrl",function($scope){
 
 });
