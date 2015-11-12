@@ -26,6 +26,7 @@ app.all('*', function(req, res, next) {
 });
 
 app.get('/leave', leave.findAll); //leave is url;
+app.get('/lbalances',lbalances.findAll);
 app.get('/employees', employees.findAll);
 app.get('/employees/:id', employees.findById);
 app.get('/employees/:id/reports', employees.findReports);
