@@ -243,13 +243,6 @@ angular.module('starter.controllers', ['ionic','ionic-datepicker'])
       $scope.leave = response;
     });
 })
-.controller("HomeCtrl",function($scope,$http){
-  $http.get("http://localhost:4000/lbalances")
-  .success(function(response){
-    $scope.lbalances=response;
-  })
-})
-
 .controller("OTReportCtrl",function($scope){
 
 });
