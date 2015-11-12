@@ -9,11 +9,12 @@ var express = require('express'),
     // Leave report leave is url;
     leave = require('./routes/leaveReport'),  
     leaveReq= require('./routes/leaveRequest'),
-
-    app = express();
     //leave Banlance 
     lbalances=require('./routes/leaveBalance'),
-    app=express();
+
+    app = express();
+    
+    //app=express();
 
 app.use(express.static('www'));
 
